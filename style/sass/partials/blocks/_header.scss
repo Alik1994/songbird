@@ -1,0 +1,25 @@
+.header {
+  padding: 25px 0 5px 0;
+
+  .header__container {
+    max-width: 1110px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header__logo {
+    display: block;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    .header__logo-img {
+      width: 200px;
+      height: 55px;
+    }
+  }
+}
