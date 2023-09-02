@@ -1,0 +1,26 @@
+.rounds-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  list-style: none;
+  background-color: $green-dark;
+  border-radius: 5px;
+  overflow: hidden;
+
+  .rounds-list__item {
+    padding: 8px 0;
+    flex: auto;
+    text-align: center;
+    cursor: pointer;
+
+    .rounds-list__link {
+      text-decoration: none;
+      color: $white;
+    }
+  }
+}
+
+//Модификаторы
+.rounds-list__item_active {
+  background-color: $green-light;
+}

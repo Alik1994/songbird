@@ -1,5 +1,5 @@
 .header {
-  padding: 25px 0 5px 0;
+  padding: 25px 0 15px 0;
 
   .header__container {
     max-width: 1110px;
@@ -20,6 +20,16 @@
     .header__logo-img {
       width: 200px;
       height: 55px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    .header__container {
+      max-width: 960px;
+      padding-left: 15px;
+      padding-right: 15px;
     }
   }
 }

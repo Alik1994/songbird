@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -12,7 +13,7 @@ body {
 }
 
 .header {
-  padding: 25px 0 5px 0;
+  padding: 25px 0 15px 0;
 }
 .header .header__container {
   max-width: 1110px;
@@ -33,9 +34,124 @@ body {
   height: 55px;
 }
 
+@media (max-width: 1200px) {
+  .header .header__container {
+    max-width: 960px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 .score .score__text {
   font-size: 18.75px;
   font-weight: 500;
+}
+
+.game-field .game-field__container {
+  max-width: 1110px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.game-field .game-field__container .game-field__rounds {
+  margin-bottom: 25px;
+}
+
+@media (max-width: 1200px) {
+  .game-field .game-field__container {
+    max-width: 960px;
+    padding: 0 15px;
+  }
+}
+.rounds-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  list-style: none;
+  background-color: #008966;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.rounds-list .rounds-list__item {
+  padding: 8px 0;
+  flex: auto;
+  text-align: center;
+  cursor: pointer;
+}
+.rounds-list .rounds-list__item .rounds-list__link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.rounds-list__item_active {
+  background-color: #00bc8c;
+}
+
+.random-bird {
+  display: flex;
+  align-items: center;
+  background-color: #303030;
+  padding: 15px;
+}
+.random-bird .random-bird__bird-img {
+  margin: 4px;
+  width: 200px;
+  height: 155px;
+  border-radius: 10px;
+  background-image: url("https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.random-bird .random-bird__bird-info {
+  flex: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.random-bird .random-bird__bird-info .random-bird__title .random-bird__name {
+  font-size: 32px;
+  font-weight: 500;
+}
+.random-bird .random-bird__bird-info .random-bird__voice {
+  padding-top: 10px;
+}
+
+.random-bird__title::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #999;
+  margin-top: 8px;
+}
+
+.player {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+}
+.player .player__playback-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px #008966 solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.play-icon {
+  width: 18px;
+  height: 18px;
+  background: url("../../../../src/icons/play-icon.png") no-repeat center;
+  background-size: contain;
+}
+
+.pause-icon {
+  width: 18px;
+  height: 18px;
+  background: url("../../../../src/icons/pause-icon.png") no-repeat center;
+  background-size: contain;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,22 @@
+.game-field {
+  .game-field__container {
+    max-width: 1110px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    .game-field__rounds {
+      margin-bottom: 25px;
+    }
+  }
+}
+
+//Адаптив
+@media (max-width: 1200px) {
+  .game-field {
+    .game-field__container {
+      max-width: 960px;
+      padding: 0 15px;
+    }
+  }
+}
