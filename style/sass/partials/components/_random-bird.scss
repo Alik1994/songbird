@@ -1,38 +1,65 @@
 .random-bird {
-  display: flex;
-  align-items: center;
   background-color: $gray-dark;
   padding: 15px;
+  height: 100%;
 
-  .random-bird__bird-img {
-    margin: 4px;
-    width: 200px;
-    height: 155px;
-    border-radius: 10px;
-    background-image: url("https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+  .random-bird__header {
+    display: flex;
+    align-items: center;
 
-  .random-bird__bird-info {
-    flex: auto;
-    padding-left: 40px;
-    padding-right: 40px;
-
-    .random-bird__title {
-      .random-bird__name {
-        font-size: 32px;
-        font-weight: 500;
-      }
+    .random-bird__bird-img {
+      margin: 4px;
+      width: 200px;
+      height: 155px;
+      border-radius: 10px;
+      background-image: url("https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
-    .random-bird__voice {
-      padding-top: 10px;
+    .random-bird__bird-info {
+      flex: auto;
+      padding-left: 40px;
+      padding-right: 40px;
+
+      .random-bird__title {
+        .random-bird__random-name {
+          font-size: 32px;
+          font-weight: 500;
+        }
+
+        .random-bird__choosen-name {
+          font-size: 22.5px;
+          font-weight: 500;
+        }
+      }
+
+      .random-bird__latin-title {
+        margin-top: 8px;
+        .random-bird__latin-name {
+          font-size: 15px;
+        }
+      }
+
+      .random-bird__voice {
+        padding-top: 10px;
+      }
+    }
+  }
+
+  .random-bird__body {
+    margin-top: 15px;
+
+    .random-bird__about {
+      .random-bird__about-text {
+        line-height: 22.5px;
+      }
     }
   }
 }
 
-.random-bird__title::after {
+.random-bird__title::after,
+.random-bird__latin-title::after {
   content: "";
   display: block;
   width: 100%;

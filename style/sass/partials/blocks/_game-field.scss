@@ -11,6 +11,34 @@
 
     .game-field__random-bird {
       margin-bottom: 25px;
+      border-radius: 5px;
+    }
+
+    .game-field__game-wrapper {
+      display: flex;
+      justify-content: space-between;
+
+      .game-field__variants {
+        background-color: $gray-dark;
+        border-radius: 5px;
+        flex: 50%;
+        margin-right: 25px;
+      }
+
+      .game-field__chosen-bird-info {
+        border-radius: 5px;
+        overflow: hidden;
+        flex: 50%;
+      }
+    }
+
+    .game-field__next-btn {
+      margin: 25px 15px;
+      text-align: center;
+      padding: 6px 12px;
+      border-radius: 5px;
+      background-color: $green-light;
+      cursor: pointer;
     }
   }
 }

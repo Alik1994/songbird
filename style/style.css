@@ -57,6 +57,30 @@ body {
 }
 .game-field .game-field__container .game-field__random-bird {
   margin-bottom: 25px;
+  border-radius: 5px;
+}
+.game-field .game-field__container .game-field__game-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.game-field .game-field__container .game-field__game-wrapper .game-field__variants {
+  background-color: #303030;
+  border-radius: 5px;
+  flex: 50%;
+  margin-right: 25px;
+}
+.game-field .game-field__container .game-field__game-wrapper .game-field__chosen-bird-info {
+  border-radius: 5px;
+  overflow: hidden;
+  flex: 50%;
+}
+.game-field .game-field__container .game-field__next-btn {
+  margin: 25px 15px;
+  text-align: center;
+  padding: 6px 12px;
+  border-radius: 5px;
+  background-color: #00bc8c;
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) {
@@ -105,12 +129,15 @@ body {
   }
 }
 .random-bird {
-  display: flex;
-  align-items: center;
   background-color: #303030;
   padding: 15px;
+  height: 100%;
 }
-.random-bird .random-bird__bird-img {
+.random-bird .random-bird__header {
+  display: flex;
+  align-items: center;
+}
+.random-bird .random-bird__header .random-bird__bird-img {
   margin: 4px;
   width: 200px;
   height: 155px;
@@ -119,20 +146,37 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.random-bird .random-bird__bird-info {
+.random-bird .random-bird__header .random-bird__bird-info {
   flex: auto;
   padding-left: 40px;
   padding-right: 40px;
 }
-.random-bird .random-bird__bird-info .random-bird__title .random-bird__name {
+.random-bird .random-bird__header .random-bird__bird-info .random-bird__title .random-bird__random-name {
   font-size: 32px;
   font-weight: 500;
 }
-.random-bird .random-bird__bird-info .random-bird__voice {
+.random-bird .random-bird__header .random-bird__bird-info .random-bird__title .random-bird__choosen-name {
+  font-size: 22.5px;
+  font-weight: 500;
+}
+.random-bird .random-bird__header .random-bird__bird-info .random-bird__latin-title {
+  margin-top: 8px;
+}
+.random-bird .random-bird__header .random-bird__bird-info .random-bird__latin-title .random-bird__latin-name {
+  font-size: 15px;
+}
+.random-bird .random-bird__header .random-bird__bird-info .random-bird__voice {
   padding-top: 10px;
 }
+.random-bird .random-bird__body {
+  margin-top: 15px;
+}
+.random-bird .random-bird__body .random-bird__about .random-bird__about-text {
+  line-height: 22.5px;
+}
 
-.random-bird__title::after {
+.random-bird__title::after,
+.random-bird__latin-title::after {
   content: "";
   display: block;
   width: 100%;
@@ -170,6 +214,7 @@ body {
   align-items: center;
   cursor: pointer;
   margin-right: 20px;
+  margin-bottom: 20px;
 }
 .player .player__timebar {
   position: relative;
@@ -187,6 +232,7 @@ body {
   height: 16px;
   background-color: #999;
   border-radius: 50%;
+  cursor: pointer;
 }
 .player .player__timebar .player__time-info {
   display: flex;
@@ -194,20 +240,54 @@ body {
   margin-top: 12px;
   font-size: 11px;
   color: #999;
+  cursor: pointer;
 }
 
-.play-icon {
+.play {
   width: 18px;
   height: 18px;
   background: url("../../../../src/icons/play-icon.png") no-repeat center;
   background-size: contain;
 }
 
-.pause-icon {
+.pause {
   width: 18px;
   height: 18px;
   background: url("../../../../src/icons/pause-icon.png") no-repeat center;
   background-size: contain;
+}
+
+.inactive {
+  background-color: #999;
+}
+
+.wrong {
+  background-color: #d62c1a;
+}
+
+.correct {
+  background-color: #00bc8c;
+}
+
+.variants-list {
+  list-style: none;
+  border: 0.5px #999 solid;
+}
+.variants-list .variants-list__variant {
+  padding: 14px 20px;
+  border-bottom: 0.5px #999 solid;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.variants-list .variants-list__variant:last-child {
+  border-bottom: none;
+}
+.variants-list .variants-list__variant .variants-list__circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 15px;
 }
 
 /*# sourceMappingURL=style.css.map */

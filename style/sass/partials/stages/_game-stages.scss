@@ -1,0 +1,28 @@
+//Плеер
+
+.play {
+  width: 18px;
+  height: 18px;
+  background: url("../../../../src/icons/play-icon.png") no-repeat center;
+  background-size: contain;
+}
+
+.pause {
+  width: 18px;
+  height: 18px;
+  background: url("../../../../src/icons/pause-icon.png") no-repeat center;
+  background-size: contain;
+}
+
+//Варианты ответа
+.inactive {
+  background-color: $gray;
+}
+
+.wrong {
+  background-color: $red;
+}
+
+.correct {
+  background-color: $green-light;
+}
