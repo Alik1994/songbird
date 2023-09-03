@@ -8,6 +8,10 @@
     .game-field__rounds {
       margin-bottom: 25px;
     }
+
+    .game-field__random-bird {
+      margin-bottom: 25px;
+    }
   }
 }
 
@@ -17,6 +21,22 @@
     .game-field__container {
       max-width: 960px;
       padding: 0 15px;
+    }
+  }
+}
+
+@media (max-width: 990px) {
+  .game-field {
+    .game-field__container {
+      max-width: 720px;
+    }
+  }
+}
+
+@media (max-width: 759px) {
+  .game-field {
+    .game-field__container {
+      max-width: 540px;
     }
   }
 }

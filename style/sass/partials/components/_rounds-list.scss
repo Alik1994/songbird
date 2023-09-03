@@ -24,3 +24,12 @@
 .rounds-list__item_active {
   background-color: $green-light;
 }
+
+//Адаптив
+@media (max-width: 990px) {
+  .rounds-list {
+    .rounds-list__item {
+      padding: 8px 12px;
+    }
+  }
+}

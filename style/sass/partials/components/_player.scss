@@ -1,6 +1,6 @@
 .player {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 4px;
 
@@ -13,5 +13,34 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin-right: 20px;
+  }
+
+  .player__timebar {
+    position: relative;
+    flex: auto;
+
+    .player__timebar-bar {
+      height: 4px;
+      background-color: $gray;
+
+      .player__timebar-circle {
+        position: absolute;
+        top: -6px;
+        left: 0%;
+        width: 16px;
+        height: 16px;
+        background-color: $gray;
+        border-radius: 50%;
+      }
+    }
+
+    .player__time-info {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      font-size: 11px;
+      color: $gray;
+    }
   }
 }
