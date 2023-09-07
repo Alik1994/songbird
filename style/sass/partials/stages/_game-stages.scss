@@ -26,3 +26,13 @@
 .correct {
   background-color: $green-light;
 }
+
+//Кнопка перехожа на другой уровень
+.next-active {
+  background-color: $green-light;
+}
+
+.next-inactive {
+  background-color: $gray-dark;
+  border: 0.5px $border solid;
+}

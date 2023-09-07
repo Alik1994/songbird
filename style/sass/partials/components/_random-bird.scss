@@ -64,12 +64,25 @@
   display: block;
   width: 100%;
   height: 0.5px;
-  background-color: $gray;
+  background-color: $border;
   margin-top: 8px;
 }
 
+//Адаптив
+@media (max-width: 990px) {
+  .game-field__chosen-bird-info {
+    .random-bird__header {
+      flex-direction: column;
+
+      .random-bird__bird-info {
+        width: 100%;
+      }
+    }
+  }
+}
+
 @media (max-width: 570px) {
-  .random-bird {
+  .random-bird__header {
     flex-direction: column;
 
     .random-bird__bird-info {

@@ -33,3 +33,19 @@
     }
   }
 }
+
+@media (max-width: 990px) {
+  .header {
+    .header__container {
+      max-width: 720px;
+    }
+  }
+}
+
+@media (max-width: 759px) {
+  .header {
+    .header__container {
+      max-width: 540px;
+    }
+  }
+}

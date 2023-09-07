@@ -1,10 +1,11 @@
 .variants-list {
   list-style: none;
-  border: 0.5px $gray solid;
+  border: 0.5px $border solid;
+  height: 100%;
 
   .variants-list__variant {
     padding: 14px 20px;
-    border-bottom: 0.5px $gray solid;
+    border-bottom: 0.5px $border solid;
     display: flex;
     align-items: center;
     cursor: pointer;
