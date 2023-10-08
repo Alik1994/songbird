@@ -26,32 +26,14 @@
   <section class="game-field">
     <div class="game-field__container">
       <ul class="rounds-list game-field__rounds">
-        <li class="rounds-list__item rounds-list__item_active">
-          <a href="#" class="rounds-list__link">Разминка</a>
-        </li>
-        <li class="rounds-list__item">
-          <a href="#" class="rounds-list__link">Воробьиные</a>
-        </li>
-        <li class="rounds-list__item">
-          <a href="#" class="rounds-list__link">Лесные птицы</a>
-        </li>
-        <li class="rounds-list__item">
-          <a href="#" class="rounds-list__link">Певчие птицы</a>
-        </li>
-        <li class="rounds-list__item">
-          <a href="#" class="rounds-list__link">Хищные птицы</a>
-        </li>
-        <li class="rounds-list__item">
-          <a href="#" class="rounds-list__link">Морские птицы</a>
-        </li>
       </ul>
       <div class="random-bird game-field__random-bird">
         <div class="random-bird__header">
-          <div class="random-bird__bird-img img-unknown">
+          <div class="random-bird__bird-img img-unknown" id="imgUknown">
           </div>
           <div class="random-bird__bird-info">
             <div class="random-bird__title">
-              <p class="random-bird__random-name name-unknown">Ворон</p>
+              <p class="random-bird__random-name name-unknown" id="nameUnknown">Ворон</p>
             </div>
             <div class="random-bird__voice">
               <div class="player">
@@ -67,6 +49,7 @@
                     <div class="player__time-end">00:06</div>
                   </div>
                 </div>
+                <audio src="" id="unknownSong"></audio>
               </div>
             </div>
           </div>
@@ -119,6 +102,7 @@
                         <div class="player__time-end">00:06</div>
                       </div>
                     </div>
+                    <audio src="" id="choosenSong"></audio>
                   </div>
                 </div>
               </div>
@@ -141,6 +125,7 @@
     </div>
 
   </section>
+  <script type="module" src="build/index.js"></script>
 </body>
 
 </html>
