@@ -22,7 +22,7 @@ function makeRoundsList(rounds: string[]): void {
     roundsList.insertAdjacentHTML(
       "beforeend",
       `
-      <li class="rounds-list__item" id="${i}">
+      <li class="rounds-list__item">
       <a href="#" class="rounds-list__link">${rounds[i]}</a>
     </li>
     `

@@ -15,7 +15,7 @@ function makeRoundsList(rounds) {
     roundsList.innerHTML = "";
     for (let i = 0; i < rounds.length; i++) {
         roundsList.insertAdjacentHTML("beforeend", `
-      <li class="rounds-list__item" id="${i}">
+      <li class="rounds-list__item">
       <a href="#" class="rounds-list__link">${rounds[i]}</a>
     </li>
     `);
