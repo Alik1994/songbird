@@ -1,8 +1,17 @@
+import { birdsData } from "./birdsData.js";
+import { chooseRandomBird } from "./chooseRandomBird.js";
 let curLvl = 0;
 function makeStartView(level) {
+    //TODO: Решить вопрос с доступом к элементам
+    //? - Какой тип данных?
+    const lvlList = document.querySelectorAll(".rounds-list__item");
+    const activeLvl = document.querySelector(".rounds-list__item_active");
+    const bird = chooseRandomBird(level);
+    const curBirdImg = document.getElementById("imgUknown");
+    const curBirdName = document.getElementById("nameUnknown");
+    const curBirdSong = document.getElementById("unknownSong");
+    const variantsList = document.querySelector(".variants-list");
     //1. Подсветка текущего активного уровня
-    let lvlList = document.querySelectorAll(".rounds-list__item");
-    let activeLvl = document.querySelector(".rounds-list__item_active");
     if (activeLvl === null) {
         lvlList[level].classList.add("rounds-list__item_active");
     }
@@ -10,16 +19,28 @@ function makeStartView(level) {
         activeLvl.classList.remove("rounds-list__item_active");
         lvlList[level].classList.add("rounds-list__item_active");
     }
-    //2. Задать изображение, название и голос загаданной птицы
+    //2. Задать изображение, название и голос загаданной птицыs
+    //? - Исправить ошибку (как?)
+    curBirdImg.style.backgroundImage = `url(${bird.image})`;
+    curBirdName.textContent = `${bird.name}`;
     //3. Скрыть изображение загаданной птицы
-    let curBirdImg = document.getElementById("imgUknown");
-    let curBirdName = document.getElementById("nameUnknown");
     if (curBirdImg.classList.contains("img-unknown")) {
         curBirdImg.style.backgroundImage =
             "url('../../../src/img/unknownBird.jpg')";
     }
     if (curBirdName.classList.contains("name-unknown")) {
         curBirdName.textContent = "******";
+    }
+    //4. Задать голос выбранной птицы в плеер
+    //? - Исправить ошибку (как?)
+    curBirdSong.src = `${bird.audio}`;
+    //5. Отображение вариантов ответа
+    let birdVariants = birdsData[level].map((item) => item.name);
+    variantsList.innerHTML = "";
+    for (let i = 0; i < birdVariants.length; i++) {
+        variantsList.insertAdjacentHTML("beforeend", `<li class="variants-list__variant">
+      <div class="variants-list__circle inactive"></div>${birdVariants[i]}
+      </li>`);
     }
 }
 export { curLvl, makeStartView };
