@@ -20,5 +20,6 @@ function makeRoundsList(rounds) {
     </li>
     `);
     }
+    return;
 }
 export { makeRoundsList, roundsName };

@@ -1,25 +1,22 @@
 import { birdsData } from "./birdsData.js";
-import { chooseRandomBird } from "./chooseRandomBird.js";
+import { makeRoundsList, roundsName } from "./makeRounds.js";
+import {
+  activeLvl,
+  curBirdImg,
+  curBirdName,
+  curBirdSong,
+  variantsList,
+} from "./index.js";
 
 let curLvl: number = 0;
 
 function makeStartView(level: number): void {
-  //TODO: Решить вопрос с доступом к элементам
-  //? - Какой тип данных?
-  const lvlList = document.querySelectorAll(".rounds-list__item");
-  const activeLvl: Element | null = document.querySelector(
-    ".rounds-list__item_active"
-  );
-
-  const bird = chooseRandomBird(level);
-  const curBirdImg = document.getElementById("imgUknown") as HTMLElement;
-  const curBirdName = document.getElementById("nameUnknown") as HTMLElement;
-  const curBirdSong = document.getElementById(
-    "unknownSong"
-  ) as HTMLAudioElement;
-  const variantsList = document.querySelector(".variants-list") as HTMLElement;
+  const bird =
+    birdsData[level][`${Math.floor(Math.random() * birdsData[level].length)}`];
 
   //1. Подсветка текущего активного уровня
+  const lvlList = document.querySelectorAll(".rounds-list__item");
+
   if (activeLvl === null) {
     lvlList[level].classList.add("rounds-list__item_active");
   } else {
@@ -28,7 +25,6 @@ function makeStartView(level: number): void {
   }
 
   //2. Задать изображение, название и голос загаданной птицыs
-  //? - Исправить ошибку (как?)
   curBirdImg.style.backgroundImage = `url(${bird.image})`;
   curBirdName.textContent = `${bird.name}`;
 
@@ -43,7 +39,6 @@ function makeStartView(level: number): void {
   }
 
   //4. Задать голос выбранной птицы в плеер
-  //? - Исправить ошибку (как?)
   curBirdSong.src = `${bird.audio}`;
 
   //5. Отображение вариантов ответа
@@ -58,6 +53,9 @@ function makeStartView(level: number): void {
       </li>`
     );
   }
+
+  //6. Изменение надписи о выбранной птице
+  const d = document.querySelector(".game-field__chosen-bird-info");
 }
 
 export { curLvl, makeStartView };

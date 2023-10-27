@@ -9,7 +9,7 @@ const roundsName: string[] = [
   "Морские птицы",
 ];
 
-function makeRoundsList(rounds: string[]): void {
+function makeRoundsList(rounds: string[]): any {
   const roundsList = document.querySelector(".rounds-list") as HTMLElement;
 
   if (rounds.length !== birdsData.length) {
@@ -28,6 +28,8 @@ function makeRoundsList(rounds: string[]): void {
     `
     );
   }
+
+  return;
 }
 
 export { makeRoundsList, roundsName };

@@ -1,17 +1,10 @@
 import { birdsData } from "./birdsData.js";
-import { chooseRandomBird } from "./chooseRandomBird.js";
+import { activeLvl, curBirdImg, curBirdName, curBirdSong, variantsList, } from "./index.js";
 let curLvl = 0;
 function makeStartView(level) {
-    //TODO: Решить вопрос с доступом к элементам
-    //? - Какой тип данных?
-    const lvlList = document.querySelectorAll(".rounds-list__item");
-    const activeLvl = document.querySelector(".rounds-list__item_active");
-    const bird = chooseRandomBird(level);
-    const curBirdImg = document.getElementById("imgUknown");
-    const curBirdName = document.getElementById("nameUnknown");
-    const curBirdSong = document.getElementById("unknownSong");
-    const variantsList = document.querySelector(".variants-list");
+    const bird = birdsData[level][`${Math.floor(Math.random() * birdsData[level].length)}`];
     //1. Подсветка текущего активного уровня
+    const lvlList = document.querySelectorAll(".rounds-list__item");
     if (activeLvl === null) {
         lvlList[level].classList.add("rounds-list__item_active");
     }
@@ -20,7 +13,6 @@ function makeStartView(level) {
         lvlList[level].classList.add("rounds-list__item_active");
     }
     //2. Задать изображение, название и голос загаданной птицыs
-    //? - Исправить ошибку (как?)
     curBirdImg.style.backgroundImage = `url(${bird.image})`;
     curBirdName.textContent = `${bird.name}`;
     //3. Скрыть изображение загаданной птицы
@@ -32,7 +24,6 @@ function makeStartView(level) {
         curBirdName.textContent = "******";
     }
     //4. Задать голос выбранной птицы в плеер
-    //? - Исправить ошибку (как?)
     curBirdSong.src = `${bird.audio}`;
     //5. Отображение вариантов ответа
     let birdVariants = birdsData[level].map((item) => item.name);
@@ -42,5 +33,7 @@ function makeStartView(level) {
       <div class="variants-list__circle inactive"></div>${birdVariants[i]}
       </li>`);
     }
+    //6. Изменение надписи о выбранной птице
+    const d = document.querySelector(".game-field__chosen-bird-info");
 }
 export { curLvl, makeStartView };
