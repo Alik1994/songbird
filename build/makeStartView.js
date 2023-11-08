@@ -1,5 +1,6 @@
 import { birdsData } from "./birdsData.js";
-import { activeLvl, curBirdImg, curBirdName, curBirdSong, variantsList, } from "./index.js";
+import { activeLvl, curBirdImg, curBirdName, curBirdSong, variantsList, chosenBirdInfo, } from "./index.js";
+import { playGame } from "./playGame.js";
 let curLvl = 0;
 function makeStartView(level) {
     const bird = birdsData[level][`${Math.floor(Math.random() * birdsData[level].length)}`];
@@ -34,6 +35,12 @@ function makeStartView(level) {
       </li>`);
     }
     //6. Изменение надписи о выбранной птице
-    const d = document.querySelector(".game-field__chosen-bird-info");
+    chosenBirdInfo.innerHTML = "";
+    chosenBirdInfo.insertAdjacentHTML("afterbegin", `<div class="random-bird">
+    <p>Послушайте плеер.</p>
+    <p>Выберите птицу из списка.</p>
+    </div>`);
+    //7. Запуск игры
+    playGame(bird);
 }
 export { curLvl, makeStartView };

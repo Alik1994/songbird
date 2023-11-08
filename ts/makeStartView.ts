@@ -1,17 +1,18 @@
-import { birdsData } from "./birdsData.js";
-import { makeRoundsList, roundsName } from "./makeRounds.js";
+import { IData, birdsData } from "./birdsData.js";
 import {
   activeLvl,
   curBirdImg,
   curBirdName,
   curBirdSong,
   variantsList,
+  chosenBirdInfo,
 } from "./index.js";
+import { playGame } from "./playGame.js";
 
 let curLvl: number = 0;
 
 function makeStartView(level: number): void {
-  const bird =
+  const bird: IData =
     birdsData[level][`${Math.floor(Math.random() * birdsData[level].length)}`];
 
   //1. Подсветка текущего активного уровня
@@ -55,7 +56,17 @@ function makeStartView(level: number): void {
   }
 
   //6. Изменение надписи о выбранной птице
-  const d = document.querySelector(".game-field__chosen-bird-info");
+  chosenBirdInfo.innerHTML = "";
+  chosenBirdInfo.insertAdjacentHTML(
+    "afterbegin",
+    `<div class="random-bird">
+    <p>Послушайте плеер.</p>
+    <p>Выберите птицу из списка.</p>
+    </div>`
+  );
+
+  //7. Запуск игры
+  playGame(bird);
 }
 
 export { curLvl, makeStartView };

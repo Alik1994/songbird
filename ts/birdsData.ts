@@ -1,4 +1,4 @@
-interface IData {
+export interface IData {
   id: number;
   name: string;
   species: string;
