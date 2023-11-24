@@ -1,5 +1,6 @@
 import { birdsData } from "./birdsData.js";
 import { activeLvl, curBirdImg, curBirdName, curBirdSong, variantsList, chosenBirdInfo, } from "./index.js";
+import { changeEndMarker } from "./changeEndMarker.js";
 import { playGame } from "./playGame.js";
 let curLvl = 0;
 function makeStartView(level) {
@@ -26,7 +27,11 @@ function makeStartView(level) {
     }
     //4. Задать голос выбранной птицы в плеер
     curBirdSong.src = `${bird.audio}`;
-    //5. Отображение вариантов ответа
+    //5. Меняем даннные об общей длине звука
+    curBirdSong.onloadedmetadata = function () {
+        changeEndMarker(curBirdSong);
+    };
+    //6. Отображение вариантов ответа
     let birdVariants = birdsData[level].map((item) => item.name);
     variantsList.innerHTML = "";
     for (let i = 0; i < birdVariants.length; i++) {
@@ -34,13 +39,13 @@ function makeStartView(level) {
       <div class="variants-list__circle inactive"></div>${birdVariants[i]}
       </li>`);
     }
-    //6. Изменение надписи о выбранной птице
+    //7. Изменение надписи о выбранной птице
     chosenBirdInfo.innerHTML = "";
     chosenBirdInfo.insertAdjacentHTML("afterbegin", `<div class="random-bird">
     <p>Послушайте плеер.</p>
     <p>Выберите птицу из списка.</p>
     </div>`);
-    //7. Запуск игры
+    //8. Запуск игры
     playGame(bird);
 }
 export { curLvl, makeStartView };

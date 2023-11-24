@@ -7,6 +7,7 @@ import {
   variantsList,
   chosenBirdInfo,
 } from "./index.js";
+import { changeEndMarker } from "./changeEndMarker.js";
 import { playGame } from "./playGame.js";
 
 let curLvl: number = 0;
@@ -40,9 +41,16 @@ function makeStartView(level: number): void {
   }
 
   //4. Задать голос выбранной птицы в плеер
+
   curBirdSong.src = `${bird.audio}`;
 
-  //5. Отображение вариантов ответа
+  //5. Меняем даннные об общей длине звука
+
+  curBirdSong.onloadedmetadata = function () {
+    changeEndMarker(curBirdSong);
+  };
+
+  //6. Отображение вариантов ответа
   let birdVariants: string[] = birdsData[level].map((item) => item.name);
   variantsList.innerHTML = "";
 
@@ -55,7 +63,7 @@ function makeStartView(level: number): void {
     );
   }
 
-  //6. Изменение надписи о выбранной птице
+  //7. Изменение надписи о выбранной птице
   chosenBirdInfo.innerHTML = "";
   chosenBirdInfo.insertAdjacentHTML(
     "afterbegin",
@@ -65,7 +73,7 @@ function makeStartView(level: number): void {
     </div>`
   );
 
-  //7. Запуск игры
+  //8. Запуск игры
   playGame(bird);
 }
 

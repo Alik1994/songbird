@@ -1,3 +1,5 @@
+import { timeMarker, playStage } from "./player.js";
+import { curBirdSong } from "./index.js";
 function playerHandler(event) {
     let targetBtn = event.target.closest(".player__playback-button");
     if (targetBtn) {
@@ -8,6 +10,7 @@ function playerHandler(event) {
             //2. Заменяем кнопку
             targetBtn.innerHTML = "";
             targetBtn.insertAdjacentHTML("afterbegin", `<div class="pause-icon"></div>`);
+            playStage(curBirdSong, timeMarker);
         }
         else {
             //1.Удаляем класс pause и добавляем play

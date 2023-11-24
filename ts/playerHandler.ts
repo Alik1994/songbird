@@ -1,3 +1,6 @@
+import { timeMarker, playStage, pauseStage } from "./player.js";
+import { curBirdSong } from "./index.js";
+
 function playerHandler(event: any): void {
   let targetBtn = event.target.closest(".player__playback-button");
 
@@ -12,6 +15,8 @@ function playerHandler(event: any): void {
         "afterbegin",
         `<div class="pause-icon"></div>`
       );
+
+      playStage(curBirdSong, timeMarker);
     } else {
       //1.Удаляем класс pause и добавляем play
       targetBtn.classList.remove("pause");

@@ -1,4 +1,5 @@
 import { birdsData } from "./birdsData.js";
+import { changeEndMarker } from "./changeEndMarker.js";
 import { makeRoundsList, roundsName } from "./makeRounds.js";
 import { curLvl, makeStartView } from "./makeStartView.js";
 

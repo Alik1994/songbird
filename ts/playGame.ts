@@ -1,4 +1,4 @@
-import { curBirdPlayer } from "./index.js";
+import { curBirdPlayer, curBirdSong } from "./index.js";
 import { IData } from "./birdsData.js";
 import { playerHandler } from "./playerHandler.js";
 
