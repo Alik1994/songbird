@@ -1,24 +1,17 @@
-import { timeMarker, playStage } from "./player.js";
+import { timeMarker, playStage, pauseStage } from "./playerStages.js";
 import { curBirdSong } from "./index.js";
+import { changePlay, changePause } from "./changePlayButton.js";
 function playerHandler(event) {
     let targetBtn = event.target.closest(".player__playback-button");
+    //1. Если нажали на кнопку проигрывания звука
     if (targetBtn) {
         if (targetBtn.classList.contains("play")) {
-            //1.Удаляем класс play и добавляем pause
-            targetBtn.classList.remove("play");
-            targetBtn.classList.add("pause");
-            //2. Заменяем кнопку
-            targetBtn.innerHTML = "";
-            targetBtn.insertAdjacentHTML("afterbegin", `<div class="pause-icon"></div>`);
-            playStage(curBirdSong, timeMarker);
+            changePlay(targetBtn);
+            playStage(curBirdSong, timeMarker, targetBtn);
         }
         else {
-            //1.Удаляем класс pause и добавляем play
-            targetBtn.classList.remove("pause");
-            targetBtn.classList.add("play");
-            //2. Заменяем кнопку
-            targetBtn.innerHTML = "";
-            targetBtn.insertAdjacentHTML("afterbegin", `<div class="play-icon"></div>`);
+            changePause(targetBtn);
+            pauseStage(curBirdSong);
         }
     }
 }

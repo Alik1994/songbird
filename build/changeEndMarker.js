@@ -9,4 +9,4 @@ function changeEndMarker(song) {
     timeEndMarker.innerHTML = "";
     timeEndMarker.textContent = `${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
 }
-export { changeEndMarker };
+export { songDuration, changeEndMarker };

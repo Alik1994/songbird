@@ -17,4 +17,4 @@ function changeEndMarker(song: HTMLAudioElement): void {
   }`;
 }
 
-export { changeEndMarker };
+export { songDuration, changeEndMarker };
