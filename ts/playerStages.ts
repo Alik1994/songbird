@@ -60,7 +60,10 @@ function playStage(
       }%, #999 ${(timeMarker / songDuration) * 100}%, #999 100%`;
 
       //4. Меняем положение ползунка
-      if (timeMarker * (timebarWidth / songDuration) >= timebarWidth) {
+      if (
+        timeMarker * (timebarWidth / songDuration) >=
+        timebarWidth - timebarIndicator.offsetWidth
+      ) {
         timebarIndicator.style.left = `${
           timebarWidth - timebarIndicator.offsetWidth
         }px`;
@@ -69,7 +72,6 @@ function playStage(
           timeMarker * (timebarWidth / songDuration)
         }px`;
       }
-      console.log(timebarIndicator.style.left);
     }
   }, 250);
 }

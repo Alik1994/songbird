@@ -36,13 +36,13 @@ function playStage(song, timemarker, playBtn) {
             //3. Меняем заливку тайм-бара
             timeProgress.style.backgroundImage = `linear-gradient(to right,#00bc8c 0%, #008966 ${(timeMarker / songDuration) * 100}%, #999 ${(timeMarker / songDuration) * 100}%, #999 100%`;
             //4. Меняем положение ползунка
-            if (timeMarker * (timebarWidth / songDuration) >= timebarWidth) {
+            if (timeMarker * (timebarWidth / songDuration) >=
+                timebarWidth - timebarIndicator.offsetWidth) {
                 timebarIndicator.style.left = `${timebarWidth - timebarIndicator.offsetWidth}px`;
             }
             else {
                 timebarIndicator.style.left = `${timeMarker * (timebarWidth / songDuration)}px`;
             }
-            console.log(timebarIndicator.style.left);
         }
     }, 250);
 }

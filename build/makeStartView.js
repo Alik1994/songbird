@@ -19,7 +19,7 @@ function makeStartView(level) {
     curBirdName.textContent = `${bird.name}`;
     //3. Скрыть изображение загаданной птицы
     if (curBirdImg.classList.contains("img-unknown")) {
-        curBirdImg.style.backgroundImage = "url('../src/img/unknownBird.jpg')";
+        curBirdImg.style.backgroundImage = "url('src/img/unknownBird.jpg')";
     }
     if (curBirdName.classList.contains("name-unknown")) {
         curBirdName.textContent = "******";
