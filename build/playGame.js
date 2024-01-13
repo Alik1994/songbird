@@ -1,12 +1,10 @@
-import { curBirdPlayer, curBirdSong } from "./index.js";
+import { curBirdPlayer, curBirdSong, variantsList, nextBtn } from "./index.js";
 import { playerHandler } from "./playerHandler.js";
 import { timebarIndicator, dragAndDrop } from "./playerStages.js";
-export const scoreEl = document.querySelector(".score__value");
-export let score = 0;
+import { variantsHandler } from "./variantsHandler.js";
+import { nextHandler } from "./nextHandler.js";
 function playGame(bird) {
-    //1. Меняем значение score
-    scoreEl.textContent = `${score}`;
-    //2. Отменяем действия браузера по умолчанию
+    //1. Отменяем действия браузера по умолчанию
     document.onmousedown = function () {
         return false;
     };
@@ -19,5 +17,9 @@ function playGame(bird) {
     timebarIndicator.ondragstart = function () {
         return false;
     };
+    //4. Обработчик событий на поле, с вариантами ответа
+    variantsList.addEventListener("click", (event) => variantsHandler(event));
+    //5. Обработчик событий на кнопку переключения уровня
+    nextBtn.addEventListener("click", nextHandler);
 }
 export { playGame };

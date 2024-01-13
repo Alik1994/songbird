@@ -1,12 +1,14 @@
 import { birdsData } from "./birdsData.js";
-import { activeLvl, curBirdImg, curBirdName, curBirdSong, variantsList, chosenBirdInfo, } from "./index.js";
+import { curBirdImg, curBirdName, curBirdSong, variantsList, chosenBirdInfo, nextBtn, } from "./index.js";
 import { changeEndMarker } from "./changeEndMarker.js";
 import { playGame } from "./playGame.js";
-let curLvl = 0;
+export let bird;
 function makeStartView(level) {
-    const bird = birdsData[level][`${Math.floor(Math.random() * birdsData[level].length)}`];
-    //1. Подсветка текущего активного уровня
+    bird =
+        birdsData[level][`${Math.floor(Math.random() * birdsData[level].length)}`];
+    //2. Подсветка текущего активного уровня
     const lvlList = document.querySelectorAll(".rounds-list__item");
+    const activeLvl = document.querySelector(".rounds-list__item_active");
     if (activeLvl === null) {
         lvlList[level].classList.add("rounds-list__item_active");
     }
@@ -14,37 +16,33 @@ function makeStartView(level) {
         activeLvl.classList.remove("rounds-list__item_active");
         lvlList[level].classList.add("rounds-list__item_active");
     }
-    //2. Задать изображение, название и голос загаданной птицыs
-    curBirdImg.style.backgroundImage = `url(${bird.image})`;
-    curBirdName.textContent = `${bird.name}`;
-    //3. Скрыть изображение загаданной птицы
-    if (curBirdImg.classList.contains("img-unknown")) {
-        curBirdImg.style.backgroundImage = "url('src/img/unknownBird.jpg')";
-    }
-    if (curBirdName.classList.contains("name-unknown")) {
-        curBirdName.textContent = "******";
-    }
-    //4. Задать голос выбранной птицы в плеер
+    //2. Скрыть изображение и название загаданной птицы
+    curBirdImg.style.backgroundImage = "url('src/img/unknownBird.jpg')";
+    curBirdName.textContent = "******";
+    //3. Задать голос загаданной птицы в плеер
     curBirdSong.src = `${bird.audio}`;
-    //5. Меняем даннные об общей длине звука
+    //4. Меняем данные об общей длине звука
     curBirdSong.onloadedmetadata = function () {
         changeEndMarker(curBirdSong);
     };
-    //6. Отображение вариантов ответа
+    //5. Отображение вариантов ответа
     let birdVariants = birdsData[level].map((item) => item.name);
     variantsList.innerHTML = "";
-    for (let i = 0; i < birdVariants.length; i++) {
-        variantsList.insertAdjacentHTML("beforeend", `<li class="variants-list__variant">
-      <div class="variants-list__circle inactive"></div>${birdVariants[i]}
-      </li>`);
+    for (let i = 1; i <= birdVariants.length; i++) {
+        variantsList.insertAdjacentHTML("beforeend", `<li class="variants-list__variant" data-id = "${i}">
+      <div class="variants-list__circle inactive"></div>${birdVariants[i - 1]}</li>`);
     }
-    //7. Изменение надписи о выбранной птице
+    //6. Изменение надписи о выбранной птице
     chosenBirdInfo.innerHTML = "";
     chosenBirdInfo.insertAdjacentHTML("afterbegin", `<div class="random-bird">
     <p>Послушайте плеер.</p>
     <p>Выберите птицу из списка.</p>
     </div>`);
-    //8. Запуск игры
+    //7. Делаем кнопку Next Level неактивной
+    nextBtn.classList.remove("next-active");
+    nextBtn.classList.add("next-inactive");
+    //9. Запуск игры
     playGame(bird);
+    console.log(bird);
 }
-export { curLvl, makeStartView };
+export { makeStartView };
