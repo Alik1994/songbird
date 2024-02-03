@@ -1,5 +1,3 @@
-import { birdsData } from "./birdsData.js";
-import { changeEndMarker } from "./changeEndMarker.js";
 import { makeRoundsList, roundsName } from "./makeRounds.js";
 import { makeStartView } from "./makeStartView.js";
 
@@ -13,9 +11,6 @@ export const curBirdName = document.getElementById(
 export const curBirdPlayer = document.getElementById(
   "playerUnknown"
 ) as HTMLElement;
-export const curBirdSong = document.getElementById(
-  "unknownSong"
-) as HTMLAudioElement;
 export const variantsList = document.querySelector(
   ".variants-list"
 ) as HTMLElement;
@@ -29,6 +24,20 @@ export const winSong = document.getElementById("winSound") as HTMLAudioElement;
 export const wrongSong = document.getElementById(
   "wrongSound"
 ) as HTMLAudioElement;
+export const winnerSound = document.getElementById(
+  "winnerSound"
+) as HTMLAudioElement;
+
+export interface IPlayerElements {
+  timeStartMarker: HTMLElement;
+  timeProgress: HTMLElement;
+  timebarWidth: number;
+  timebar: HTMLElement;
+  timebarIndicator: HTMLElement;
+  song: HTMLAudioElement;
+  songDuration: number;
+  timeMarker: number;
+}
 
 function init(): void {
   makeRoundsList(roundsName);

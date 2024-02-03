@@ -1,5 +1,4 @@
 import { birdsData } from "./birdsData.js";
-
 const roundsName: string[] = [
   "Разминка",
   "Воробьиные",

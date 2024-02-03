@@ -84,6 +84,13 @@ body {
   overflow: hidden;
   flex: 50%;
 }
+.game-field .game-field__container .game-field__game-wrapper .game-field__chosen-bird-info_win-stage .random-bird {
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
 .game-field .game-field__container .game-field__next-btn {
   margin: 25px 0;
   text-align: center;

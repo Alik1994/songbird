@@ -1,10 +1,13 @@
 import { bird } from "./makeStartView.js";
+import { birdsData } from "./birdsData.js";
 import { curBirdName, curBirdImg, scoreEl, winSong, wrongSong, nextBtn, } from "./index.js";
+import { showBirdInfo } from "./showBirdInfo.js";
 import { curLvl } from "./nextHandler.js";
+import { winnerStage } from "./winnerStage.js";
 //Количество попыток
 let numOfTries = 6;
 //Количество баллов за ответ
-let numOfPoints = 5;
+export let numOfPoints = 5;
 //Общее количество баллов
 export let score = 0;
 //Индикатор выбранного ответа
@@ -21,7 +24,7 @@ function variantsHandler(event) {
         //1. Проверка на правильность ответа
         //Если ПРАВИЛЬНО
         if (bird.id === targetID) {
-            //Возввращаем начальное значение ID  неправильного ответа
+            //Возвращаем начальное значение ID  неправильного ответа
             wrongID = -1;
             //Проигрываем победную музыку
             winSong.play();
@@ -46,6 +49,11 @@ function variantsHandler(event) {
             //Делаем кнопку перехода на другой уровень активной
             nextBtn.classList.remove("next-inactive");
             nextBtn.classList.add("next-active");
+            //Запускаем проверку выигрыша
+            if (winnerStage(curLvl, score)) {
+                score = 0;
+                return;
+            }
         }
         else if (!isWin && targetID !== wrongID) {
             //Проигрываем музыку ошибки
@@ -59,7 +67,9 @@ function variantsHandler(event) {
             //Записываем новый ID неправильного ответа
             wrongID = targetID;
         }
-        console.log(wrongID);
+        //Показываем информацию о выбранной птице
+        const targetBird = birdsData[curLvl][targetID - 1];
+        showBirdInfo(targetBird);
     }
 }
 export { variantsHandler };

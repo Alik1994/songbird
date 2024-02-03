@@ -1,20 +1,21 @@
-import { curBirdPlayer, curBirdSong, variantsList, nextBtn } from "./index.js";
+import { curBirdPlayer, variantsList, nextBtn } from "./index.js";
+import { secretPlayerElements } from "./makeStartView.js";
 import { playerHandler } from "./playerHandler.js";
-import { timebarIndicator, dragAndDrop } from "./playerStages.js";
+import { dragAndDrop } from "./playerStages.js";
 import { variantsHandler } from "./variantsHandler.js";
 import { nextHandler } from "./nextHandler.js";
-function playGame(bird) {
+function playGame() {
     //1. Отменяем действия браузера по умолчанию
     document.onmousedown = function () {
         return false;
     };
     //2. Обработчик событий на плеер для загаданной птицы
     curBirdPlayer.addEventListener("click", (event) => playerHandler(event));
-    //3. Обработчик событий на интикатор пройденного времени на плеере
-    timebarIndicator.onmousedown = function (event) {
-        dragAndDrop(event, curBirdSong);
+    //3. Обработчик событий на индикатор пройденного времени на плеере
+    secretPlayerElements.timebarIndicator.onmousedown = function (event) {
+        dragAndDrop(event, secretPlayerElements);
     };
-    timebarIndicator.ondragstart = function () {
+    secretPlayerElements.timebarIndicator.ondragstart = function () {
         return false;
     };
     //4. Обработчик событий на поле, с вариантами ответа

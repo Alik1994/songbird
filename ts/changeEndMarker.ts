@@ -1,20 +1,15 @@
-const timeEndMarker = document.querySelector(
-  ".player__time-end"
-) as HTMLElement;
-let songDuration: number;
-
-function changeEndMarker(song: HTMLAudioElement): void {
+function changeEndMarker(song: HTMLAudioElement, endMarker: HTMLElement): void {
   //1. Вычисляем длину звука
-  songDuration = Math.ceil(song.duration);
+  let songLength = Math.ceil(song.duration);
 
   //2. Меняем значение продолжительности в тайм-баре
-  let minutes: number = Math.floor(songDuration / 60);
-  let seconds: number = songDuration - minutes * 60;
+  let minutes: number = Math.floor(songLength / 60);
+  let seconds: number = songLength - minutes * 60;
 
-  timeEndMarker.innerHTML = "";
-  timeEndMarker.textContent = `${minutes < 10 ? "0" + minutes : minutes}:${
+  endMarker.innerHTML = "";
+  endMarker.textContent = `${minutes < 10 ? "0" + minutes : minutes}:${
     seconds < 10 ? "0" + seconds : seconds
   }`;
 }
 
-export { songDuration, changeEndMarker };
+export { changeEndMarker };

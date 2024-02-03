@@ -29,6 +29,14 @@
         border-radius: 5px;
         overflow: hidden;
         flex: 50%;
+
+        &_win-stage .random-bird {
+          background-color: green;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-transform: uppercase;
+        }
       }
     }
 
