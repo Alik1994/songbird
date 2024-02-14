@@ -27,10 +27,6 @@ function playGame(): void {
     dragAndDrop(event, secretPlayerElements);
   };
 
-  secretPlayerElements.timebarIndicator.ontouchmove = function () {
-    return false;
-  };
-
   //4. Обработчик событий на поле, с вариантами ответа
   variantsList.addEventListener("click", (event) => variantsHandler(event));
 

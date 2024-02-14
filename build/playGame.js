@@ -22,9 +22,6 @@ function playGame() {
     secretPlayerElements.timebarIndicator.ontouchstart = function (event) {
         dragAndDrop(event, secretPlayerElements);
     };
-    secretPlayerElements.timebarIndicator.ontouchmove = function () {
-        return false;
-    };
     //4. Обработчик событий на поле, с вариантами ответа
     variantsList.addEventListener("click", (event) => variantsHandler(event));
     //5. Обработчик событий на кнопку переключения уровня
