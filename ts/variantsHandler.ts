@@ -52,9 +52,7 @@ function variantsHandler(event: any): void {
 
       //Прибавляем баллы к общему количеству
       //Если это разминка, то баллы не увеличиваются
-      if (curLvl === 0) {
-        scoreEl.textContent = `0`;
-      } else if (!isWin) {
+      if (!isWin) {
         score += numOfPoints;
         scoreEl.textContent = `${score}`;
       }

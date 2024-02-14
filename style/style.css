@@ -96,7 +96,6 @@ body {
   text-align: center;
   padding: 6px 12px;
   border-radius: 5px;
-  cursor: pointer;
 }
 
 @media (max-width: 1200px) {
@@ -135,11 +134,11 @@ body {
   padding: 8px 0;
   flex: auto;
   text-align: center;
-  cursor: pointer;
 }
 .rounds-list .rounds-list__item .rounds-list__link {
   text-decoration: none;
   color: #fff;
+  cursor: default;
 }
 
 .rounds-list__item_active {
@@ -302,11 +301,13 @@ body {
 
 .next-active {
   background-color: #00bc8c;
+  cursor: pointer;
 }
 
 .next-inactive {
   background-color: #303030;
   border: 0.5px #555 solid;
+  cursor: default;
 }
 
 .variants-list {
@@ -323,6 +324,9 @@ body {
 }
 .variants-list .variants-list__variant:last-child {
   border-bottom: none;
+}
+.variants-list .variants-list__variant:hover {
+  background-color: #555;
 }
 .variants-list .variants-list__variant .variants-list__circle {
   width: 10px;

@@ -70,12 +70,18 @@ function dragAndDrop(event, elements) {
         moveAt(event.pageX);
     }
     elements.timebar.addEventListener("mousemove", onMouseMove);
+    elements.timebar.addEventListener("touchmove", onMouseMove);
     elements.timebarIndicator.onmouseup = function () {
         elements.song.currentTime = elements.timeMarker;
         elements.timebar.removeEventListener("mousemove", onMouseMove);
     };
     elements.timebar.onmouseleave = function () {
         elements.timebar.removeEventListener("mousemove", onMouseMove);
+    };
+    //Для сенсора
+    elements.timebarIndicator.ontouchend = function () {
+        elements.song.currentTime = elements.timeMarker;
+        elements.timebar.removeEventListener("touchmove", onMouseMove);
     };
 }
 function reset(elements, timerId) {

@@ -11,11 +11,11 @@
     padding: 8px 0;
     flex: auto;
     text-align: center;
-    cursor: pointer;
 
     .rounds-list__link {
       text-decoration: none;
       color: $white;
+      cursor: default;
     }
   }
 }

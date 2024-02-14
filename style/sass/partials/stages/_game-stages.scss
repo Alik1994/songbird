@@ -30,9 +30,11 @@
 //Кнопка перехожа на другой уровень
 .next-active {
   background-color: $green-light;
+  cursor: pointer;
 }
 
 .next-inactive {
   background-color: $gray-dark;
   border: 0.5px $border solid;
+  cursor: default;
 }
