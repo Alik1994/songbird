@@ -1,7 +1,7 @@
-import { playStage, pauseStage } from "./playerStages.js";
-import { changePlay, changePause } from "./changePlayButton.js";
-import { secretPlayerElements } from "./makeStartView.js";
-import { chosenPlayerElements } from "./showBirdInfo.js";
+import { playStage, pauseStage } from "./playerStages";
+import { changePlay, changePause } from "./changePlayButton";
+import { secretPlayerElements } from "./makeStartView";
+import { chosenPlayerElements } from "./showBirdInfo";
 
 export let playBtn: HTMLElement;
 

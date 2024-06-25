@@ -1,7 +1,6 @@
-import { makeRoundsList, roundsName } from "./makeRounds.js";
-import { makeStartView } from "./makeStartView.js";
-
-//? - Какой тип данных?
+import "../style/main.scss";
+import { makeRoundsList, roundsName } from "./makeRounds";
+import { makeStartView } from "./makeStartView";
 
 export const scoreEl = document.querySelector(".score__value") as HTMLElement;
 export const curBirdImg = document.getElementById("imgUnknown") as HTMLElement;

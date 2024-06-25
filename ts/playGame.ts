@@ -1,9 +1,9 @@
-import { curBirdPlayer, variantsList, nextBtn } from "./index.js";
-import { secretPlayerElements } from "./makeStartView.js";
-import { playerHandler } from "./playerHandler.js";
-import { dragAndDrop } from "./playerStages.js";
-import { variantsHandler } from "./variantsHandler.js";
-import { nextHandler } from "./nextHandler.js";
+import { curBirdPlayer, variantsList, nextBtn } from "./index";
+import { secretPlayerElements } from "./makeStartView";
+import { playerHandler } from "./playerHandler";
+import { dragAndDrop } from "./playerStages";
+import { variantsHandler } from "./variantsHandler";
+import { nextHandler } from "./nextHandler";
 
 function playGame(): void {
   //1. Отменяем действия браузера по умолчанию

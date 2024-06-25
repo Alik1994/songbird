@@ -1,8 +1,8 @@
 import { IData } from "./birdsData";
-import { IPlayerElements } from "./index.js";
-import { pasteFragment } from "./pasteFragment.js";
-import { playerHandler } from "./playerHandler.js";
-import { changeEndMarker } from "./changeEndMarker.js";
+import { IPlayerElements } from "./index";
+import { pasteFragment } from "./pasteFragment";
+import { playerHandler } from "./playerHandler";
+import { changeEndMarker } from "./changeEndMarker";
 export let chosenPlayerElements: IPlayerElements;
 
 function showBirdInfo(info: IData): void {

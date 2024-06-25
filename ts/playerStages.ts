@@ -1,7 +1,7 @@
-import { IPlayerElements } from "./index.js";
-import { changePause } from "./changePlayButton.js";
+import { IPlayerElements } from "./index";
+import { changePause } from "./changePlayButton";
 
-function playStage(elements: IPlayerElements, playBtn: HTMLElement): number {
+function playStage(elements: IPlayerElements, playBtn: HTMLElement): any {
   //Запускаем звуки птицы
   elements.song.play();
 
@@ -48,7 +48,7 @@ function playStage(elements: IPlayerElements, playBtn: HTMLElement): number {
   return timerId;
 }
 
-function pauseStage(song: HTMLAudioElement, timerId: number) {
+function pauseStage(song: HTMLAudioElement, timerId: any) {
   clearInterval(timerId);
   song.pause();
 }
@@ -117,7 +117,7 @@ function dragAndDrop(event: any, elements: IPlayerElements) {
   };
 }
 
-function reset(elements: IPlayerElements, timerId: number) {
+function reset(elements: IPlayerElements, timerId: any) {
   //1. Остановка таймера
   clearInterval(timerId);
   //2. Обнуление счетчика учета времени

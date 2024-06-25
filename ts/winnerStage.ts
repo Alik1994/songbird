@@ -1,6 +1,6 @@
-import { chosenBirdInfo, winnerSound, nextBtn, variantsList } from "./index.js";
-import { roundsName } from "./makeRounds.js";
-import { variantsHandler } from "./variantsHandler.js";
+import { chosenBirdInfo, winnerSound, nextBtn, variantsList } from "./index";
+import { roundsName } from "./makeRounds";
+import { variantsHandler } from "./variantsHandler";
 
 //Количество уровней
 export let numOfLevels: number = roundsName.length;

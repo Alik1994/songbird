@@ -1,8 +1,8 @@
-import { nextBtn, scoreEl } from "./index.js";
-import { makeStartView, secretPlayerElements } from "./makeStartView.js";
-import { timerSecretId } from "./playerHandler.js";
-import { reset } from "./playerStages.js";
-import { numOfLevels } from "./winnerStage.js";
+import { nextBtn, scoreEl } from "./index";
+import { makeStartView, secretPlayerElements } from "./makeStartView";
+import { timerSecretId } from "./playerHandler";
+import { reset } from "./playerStages";
+import { numOfLevels } from "./winnerStage";
 
 let curLvl: number = 0;
 

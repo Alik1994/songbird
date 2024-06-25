@@ -1,5 +1,5 @@
 import { IData } from "./birdsData";
-import { chosenBirdInfo } from "./index.js";
+import { chosenBirdInfo } from "./index";
 
 function pasteFragment(info: IData) {
   chosenBirdInfo.innerHTML = "";

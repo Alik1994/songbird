@@ -1,5 +1,5 @@
-import { bird } from "./makeStartView.js";
-import { IData, birdsData } from "./birdsData.js";
+import { bird } from "./makeStartView";
+import { IData, birdsData } from "./birdsData";
 import {
   curBirdName,
   curBirdImg,
@@ -7,10 +7,10 @@ import {
   winSong,
   wrongSong,
   nextBtn,
-} from "./index.js";
-import { showBirdInfo } from "./showBirdInfo.js";
-import { curLvl } from "./nextHandler.js";
-import { winnerStage } from "./winnerStage.js";
+} from "./index";
+import { showBirdInfo } from "./showBirdInfo";
+import { curLvl } from "./nextHandler";
+import { winnerStage } from "./winnerStage";
 
 //Количество попыток
 let numOfTries: number = 6;

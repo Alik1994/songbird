@@ -1,4 +1,4 @@
-import { IData, birdsData } from "./birdsData.js";
+import { IData, birdsData } from "./birdsData";
 import {
   curBirdImg,
   curBirdName,
@@ -6,9 +6,9 @@ import {
   chosenBirdInfo,
   nextBtn,
   IPlayerElements,
-} from "./index.js";
-import { changeEndMarker } from "./changeEndMarker.js";
-import { playGame } from "./playGame.js";
+} from "./index";
+import { changeEndMarker } from "./changeEndMarker";
+import { playGame } from "./playGame";
 
 const secretMarker = document.querySelector(
   ".player__time-start"
